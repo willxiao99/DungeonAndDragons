@@ -2,7 +2,7 @@
  * Race.h
  *
  *  Created on: Jan 18, 2015
- *      Author: HSIAOFamily
+ *      Author: WillXiao
  */
 
 #ifndef RACE_H_
@@ -12,10 +12,9 @@
 using namespace std;
 
 class Race{
-	string race_name;
 
 protected:
-
+    string race;
 public:
 	Race();
 	virtual ~Race();

@@ -2,7 +2,7 @@
 //  main.cpp
 //  DungeonsAndDragons
 //
-//  Created by William Hsiao [STUDENT] on 2/16/15.
+//  Created by William Hsiao on 2/16/15.
 //  Copyright (c) 2015 William Hsiao. All rights reserved.
 //
 

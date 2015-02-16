@@ -2,7 +2,7 @@
  * Hostiles.h
  *
  *  Created on: Jan 18, 2015
- *      Author: HSIAOFamily
+ *      Author: WillXiao
  */
 
 #ifndef CHARACTERS_HOSTILES_H_

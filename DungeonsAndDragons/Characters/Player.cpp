@@ -2,7 +2,7 @@
  * Player.cpp
  *
  *  Created on: Jan 18, 2015
- *      Author: HSIAOFamily
+ *      Author: WillXiao
  */
 
 #include <iostream>
@@ -20,25 +20,22 @@ Player::Player(string name, string race, string character_class) {
     this->character_class = character_class;
     
 	level = 1;
-	gold = 0;
+	gold = 100;
 	xp = 0;
     
-    max_hp = 12 + con + 5*(level-1);
-    current_hp = max_hp;
+    base_initiative = dex_mod + level/2 + initiative_misc_bonus;
     
-    initiative = 0;
+    str = 16; str_mod = str/2-5;
+    con = 15; con_mod = con/2-5;
+    dex = 14; dex_mod = dex/2-5;
+    intel = 13; intel_mod = intel/2-5;
+    wis = 11; wis_mod = wis/2-5;
+    cha = 11; cha_mod = cha/2-5;
     
-    str = 1; str_mod = str/2-5;
-    con = 3; con_mod = con/2-5;
-    dex = 5; dex_mod = dex/2-5;
-    intel = 17; intel_mod = intel/2-5;
-    wis = 12; wis_mod = wis/2-5;
-    cha = 22; cha_mod = cha/2-5;
-    
-    AC = 0;
-    fortitude = 0;
-    reflex = 0;
-    will = 0;
+    AC = 10 + level/2; //Ommitted: total_armor_ac, light_abil_ac_bonus, enhancement_ac_bonus, total_feat_bonus_ac
+    fortitude = 10 + level/2;
+    reflex = 10 + level/2;
+    will = 10 + level/2;
 
 	//race attributes
 
@@ -54,6 +51,10 @@ Player::Player(string name, string race, string character_class) {
             //weapon_proficiency = {"Simple Melee", "Simple Ranged", "", "" ,"", "", "", "", "", "", "", "", "", "", "", "" ,"", "", "", ""};
             implement = "Holy Symbol";
             will_class_bonus = 2;
+            
+            base_health = 12;
+            max_hp = base_health + con + 5*(level-1);
+            current_hp = max_hp;
             daily_surge_count = 7 + con_mod;
             break;
         case 2:
@@ -74,9 +75,9 @@ void Player::DisplayPlayerInfo() {
     cout << "Name: " << name << endl;
     cout << "Level: " << level << endl;
     cout << "Health: " << current_hp << "/" << max_hp << endl;
-    
-    cout << "Initiative: " << initiative + initiative_misc_bonus << endl;
-    
+    cout << endl;
+    cout << "Initiative: " << base_initiative + initiative_misc_bonus << endl;
+    cout << endl;
     cout << "Defenses" << endl;
     cout << "AC: " << AC << endl;
     cout << "Fortitude: " << fortitude << endl;

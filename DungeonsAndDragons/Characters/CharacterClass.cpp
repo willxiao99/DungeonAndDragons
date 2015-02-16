@@ -2,7 +2,7 @@
  * CharacterClass.cpp
  *
  *  Created on: Jan 18, 2015
- *      Author: HSIAOFamily
+ *      Author: WillXiao
  */
 
 #include <iostream>
@@ -28,6 +28,7 @@ CharacterClass::CharacterClass(string character_class) {
 			//weapon_proficiency = {"Simple Melee", "Simple Ranged", "", "" ,"", "", "", "", "", "", "", "", "", "", "", "" ,"", "", "", ""};
 			implement = "Holy Symbol";
 			will_class_bonus = 2;
+            base_health = 12;
             //daily_surge_count = 7 + con_mod;
 			break;
         case 2:
