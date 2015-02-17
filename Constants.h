@@ -52,7 +52,24 @@ const int longbow = 33;
 const int shortbow = 34;
 const int shuriken = 35;
 
-//Class Base Health
+//skills
+const int acrobatics = 0;
+const int arcana = 1;
+const int athletics = 2;
+const int bluff = 3;
+const int diplomacy = 4;
+const int dungeoneering = 5;
+const int endurance = 6;
+const int heal = 7;
+const int history = 8;
+const int insight = 9;
+const int intimidate = 10;
+const int nature = 11;
+const int perception = 12;
+const int religion = 13;
+const int stealth = 14;
+const int streetwise = 15;
+const int thievery = 16;
 
 
 #endif /* defined(__DungeonsAndDragons__Constants__) */

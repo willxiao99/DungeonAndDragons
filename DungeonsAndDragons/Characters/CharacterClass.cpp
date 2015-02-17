@@ -15,42 +15,6 @@ CharacterClass::CharacterClass() {
 
 }
 
-CharacterClass::CharacterClass(string character_class) {
-	this->character_class = character_class;
-	switch(TranslateClass()) {
-		case 1:
-			role = "Leader";
-			role_description = ". You lead by shielding allies with your prayers, healing, and using powers that improve your allies’ attacks.";
-			power_source = "Divine";
-			power_source_description = ". You have been invested with the authority to wield divine power on behalf of a deity, faith, or philosophy.";
-			//consider adding key abilities
-            //armor ability
-			//weapon_proficiency = {"Simple Melee", "Simple Ranged", "", "" ,"", "", "", "", "", "", "", "", "", "", "", "" ,"", "", "", ""};
-			implement = "Holy Symbol";
-			will_class_bonus = 2;
-            base_health = 12;
-            //daily_surge_count = 7 + con_mod;
-			break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-		default:
-            cout << "Error Creating Character: Invalid Class" << endl;
-            break;
-	}
-}
-
 CharacterClass::~CharacterClass() {
 	// TODO Auto-generated destructor stub
 }

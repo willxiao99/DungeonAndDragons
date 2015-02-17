@@ -22,9 +22,21 @@ int rollDie(int number, int sides) {
     return x;
 }
 
-int main() {
-    Player WillXiao("WillXiao", "Dragonborn", "Cleric");
+void createPlayerCharacter() {
+    string name_input, race_choice, class_choice;
+    cout << "What's your name? ";
+    cin >> name_input;
+    cout << endl << "Pick a race: ";
+    cin >> race_choice;
+    cout << endl << "Pick a class: ";
+    cin >> class_choice;
+    cout << endl;
+    Player WillXiao(name_input, race_choice, class_choice);
     WillXiao.DisplayPlayerInfo();
+}
+
+int main() {
+    createPlayerCharacter();
     
     for(int i = 0; i < 10; i++) {
         int temp = rollDie(3, 4);
