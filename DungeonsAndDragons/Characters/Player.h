@@ -24,7 +24,7 @@ protected:
     int str, str_mod, con, con_mod, dex, dex_mod, intel, intel_mod, wis, wis_mod, cha, cha_mod; //ability scores
     int str_vs_con, dex_vs_intel, wis_vs_cha, light_armor_ac_bonus;
     int armor_proficiency, shield_proficiency;
-    bool weapon_proficiencies[35], trained_skill[16];
+    bool weapon_proficiencies[37], trained_skill[16];
     string equippedArmor, equipped_Shield;
     
 public:
@@ -35,9 +35,14 @@ public:
     int getLevel();
     int levelUp();
     void equipArmor(string armor_name);
+    
+    void addTrainedSkill();
     void addTrainedSkill(int skill_ID);
+    int translateSkill();
+    
     bool equippedArmorIsHeavy();
     virtual void DisplayPlayerInfo();
+    int translateSkill(string skill_name);
 };
 
 #endif /* PLAYER_H_ */

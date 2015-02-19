@@ -17,11 +17,11 @@ protected:
     //variables
     string character_class, role, role_description, power_source, power_source_description, implement;
     int fort_class_bonus, ref_class_bonus, will_class_bonus;
-    int base_health, hp_level_growth, daily_surge_count;
+    int base_health, hp_level_growth, base_surge_count;
     
     //functions
 
-    int TranslateClass();
+    int translateClass();
     
 public:
 	CharacterClass();

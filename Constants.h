@@ -31,26 +31,27 @@ const int handaxe = 12;
 const int longsword = 13;
 const int scimitar = 14;
 const int short_sword = 15;
-const int warhammer = 16;
-const int war_pick = 17;
-const int falchion = 18;
-const int glaive = 19;
-const int greataxe = 20;
-const int greatsword = 21;
-const int halberd = 22;
-const int heavy_flail = 23;
-const int longspear = 24;
-const int maul = 25;
-const int bastard_sword = 26;
-const int katar = 27;
-const int rapier = 28;
-const int spiked_chain = 29;
-const int hand_crossbow = 30;
-const int sling = 31;
-const int crossbow = 32;
-const int longbow = 33;
-const int shortbow = 34;
-const int shuriken = 35;
+const int throwing_hammer = 16;
+const int warhammer = 17;
+const int war_pick = 18;
+const int falchion = 19;
+const int glaive = 20;
+const int greataxe = 21;
+const int greatsword = 22;
+const int halberd = 23;
+const int heavy_flail = 24;
+const int longspear = 25;
+const int maul = 26;
+const int bastard_sword = 27;
+const int katar = 28;
+const int rapier = 29;
+const int spiked_chain = 30;
+const int hand_crossbow = 31;
+const int sling = 32;
+const int crossbow = 33;
+const int longbow = 34;
+const int shortbow = 35;
+const int shuriken = 36;
 
 //skills
 const int acrobatics = 0;
@@ -70,6 +71,5 @@ const int religion = 13;
 const int stealth = 14;
 const int streetwise = 15;
 const int thievery = 16;
-
 
 #endif /* defined(__DungeonsAndDragons__Constants__) */

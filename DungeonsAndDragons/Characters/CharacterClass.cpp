@@ -19,22 +19,22 @@ CharacterClass::~CharacterClass() {
 	// TODO Auto-generated destructor stub
 }
 
-int CharacterClass::TranslateClass() {
+int CharacterClass::translateClass() {
 	if(character_class == "Cleric")
 		return 1;
-	if(character_class == "Fighter")
+	else if(character_class == "Fighter")
 		return 2;
-	if(character_class == "Paladin")
+	else if(character_class == "Paladin")
 		return 3;
-	if(character_class == "Ranger")
+	else if(character_class == "Ranger")
 		return 4;
-	if(character_class == "Rogue")
+	else if(character_class == "Rogue")
 		return 5;
-	if(character_class == "Warlock")
+	else if(character_class == "Warlock")
 		return 6;
-	if(character_class == "Warlord")
+	else if(character_class == "Warlord")
 		return 7;
-	if(character_class == "Wizard")
+	else if(character_class == "Wizard")
 		return 8;
 	else
 		return -1;

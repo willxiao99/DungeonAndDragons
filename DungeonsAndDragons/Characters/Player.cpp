@@ -54,15 +54,16 @@ Player::Player(string name, string race, string character_class) {
 
 	//race attributes
 
-	//class attributes
-    switch(TranslateClass()) {
-        {case 1:
+	//class attributes, still need to implement class features, powers, deities, and paragon paths.
+    switch(translateClass()) {
+        case 1:
             role = "Leader";
             role_description = ". You lead by shielding allies with your prayers, healing, and using powers that improve your allies’ attacks.";
             power_source = "Divine";
             power_source_description = ". You have been invested with the authority to wield divine power on behalf of a deity, faith, or philosophy.";
             //key_abilities = "Wisdom, Strength, Charisma"
             armor_proficiency = 4;
+            shield_proficiency = 0;
             weapon_proficiencies[club] = true;
             weapon_proficiencies[dagger] = true;
             weapon_proficiencies[javelin] = true;
@@ -81,16 +82,96 @@ Player::Player(string name, string race, string character_class) {
             ref_class_bonus = 0;
             will_class_bonus = 2;
             base_health = 12;
-            hp_level_growth = 7;
+            hp_level_growth = 5;
+            base_surge_count = 7;
             trained_skill[religion] = true;
-            string class_skill_choice;
+            {string class_skill_choice;
             cout << "Choose one skill to train out of Arcana (Int), Diplomacy (Cha), Heal (Wis), History (Int), Insight (Wis), Religion (Int): ";
             cin >> class_skill_choice;
             cout << endl;
             if(class_skill_choice == "Arcana")
                 trained_skill[arcana] = true;
-            break;}
+            else if(class_skill_choice == "Diplomacy")
+                trained_skill[diplomacy] = true;
+            else if(class_skill_choice == "Heal")
+                trained_skill[heal] = true;
+            else if(class_skill_choice == "History")
+                trained_skill[history] = true;
+            else if(class_skill_choice == "Insight")
+                trained_skill[insight] = true;
+            else if(class_skill_choice == "Religion")
+                trained_skill[religion] = true;
+            else
+                cout << "Invalid skill choice. Sucks to be you, cus you don't get to pick again." << endl;
+            }
+            break;
         case 2:
+            role = "Defender";
+            role_description = ". You are very tough and have the exceptional ability to contain enemies in melee.";
+            power_source = "Martial";
+            power_source_description = ". You have become a master of combat through endless hours of practice, determination, and your own sheer physical toughness.";
+            //key_abilities = "Strength, Dexterity, Wisdom, Constitution"
+            armor_proficiency = 5;
+            shield_proficiency = 2;
+            weapon_proficiencies[club] = true;
+            weapon_proficiencies[dagger] = true;
+            weapon_proficiencies[javelin] = true;
+            weapon_proficiencies[mace] = true;
+            weapon_proficiencies[sickle] = true;
+            weapon_proficiencies[spear] = true;
+            weapon_proficiencies[greatclub] = true;
+            weapon_proficiencies[morningstar] = true;
+            weapon_proficiencies[quarterstaff] = true;
+            weapon_proficiencies[scythe] = true;
+            weapon_proficiencies[battleaxe] = true;
+            weapon_proficiencies[flail] = true;
+            weapon_proficiencies[handaxe] = true;
+            weapon_proficiencies[longsword] = true;
+            weapon_proficiencies[scimitar] = true;
+            weapon_proficiencies[short_sword] = true;
+            weapon_proficiencies[throwing_hammer] = true;
+            weapon_proficiencies[warhammer] = true;
+            weapon_proficiencies[war_pick] = true;
+            weapon_proficiencies[falchion] = true;
+            weapon_proficiencies[glaive] = true;
+            weapon_proficiencies[greataxe] = true;
+            weapon_proficiencies[greatsword] = true;
+            weapon_proficiencies[halberd] = true;
+            weapon_proficiencies[heavy_flail] = true;
+            weapon_proficiencies[longspear] = true;
+            weapon_proficiencies[maul] = true;
+            weapon_proficiencies[hand_crossbow] = true;
+            weapon_proficiencies[sling] = true;
+            weapon_proficiencies[crossbow] = true;
+            weapon_proficiencies[longbow] = true;
+            weapon_proficiencies[shortbow] = true;
+            implement = "";
+            fort_class_bonus = 2;
+            ref_class_bonus = 0;
+            will_class_bonus = 0;
+            base_health = 15;
+            hp_level_growth = 6;
+            base_surge_count = 9;
+            trained_skill[religion] = true;
+            {string class_skill_choice;
+            cout << "Choose one skill to train out of Arcana (Int), Diplomacy (Cha), Heal (Wis), History (Int), Insight (Wis), Religion (Int): ";
+            cin >> class_skill_choice;
+            cout << endl;
+            if(class_skill_choice == "Arcana")
+                trained_skill[arcana] = true;
+            else if(class_skill_choice == "Diplomacy")
+                trained_skill[diplomacy] = true;
+            else if(class_skill_choice == "Heal")
+                trained_skill[heal] = true;
+            else if(class_skill_choice == "History")
+                trained_skill[history] = true;
+            else if(class_skill_choice == "Insight")
+                trained_skill[insight] = true;
+            else if(class_skill_choice == "Religion")
+                trained_skill[religion] = true;
+            else
+                cout << "Invalid skill choice. Sucks to be you, cus you don't get to pick again." << endl;
+            }
             break;
         case 3:
             break;
@@ -104,7 +185,7 @@ Player::Player(string name, string race, string character_class) {
     }
     max_hp = base_health + con + hp_level_growth*(level-1);
     current_hp = max_hp;
-    daily_surge_count =  + con_mod;
+    base_surge_count = 9 + con_mod;
 }
 
 Player::~Player() {
@@ -134,6 +215,64 @@ bool Player::equippedArmorIsHeavy() {
     return false;
 }
 
+void Player::addTrainedSkill() {
+    bool x = true;
+    string skill_name;
+    int skill_ID;
+    while(x) {
+        cin >> skill_name;
+        skill_ID = translateSkill(skill_name);
+        cout << endl;
+        if(trained_skill[skill_ID] == false) {
+            trained_skill[skill_ID] = true;
+            x = false;
+        }
+        else if(trained_skill[skill_ID] == true)
+            cout << "Skill is already trained, pick another skill." << endl;
+        else
+            cout << "Skill does not exist, try again." << endl;
+    }
+}
+
 void Player::addTrainedSkill(int skill_ID) {
-    trained_skill[skill_ID] = true;
+    
+}
+
+int Player::translateSkill(string skill_name) {
+    if(skill_name == "Acrobatics")
+        return 0;
+    else if(skill_name == "Arcana")
+        return 1;
+    else if(skill_name == "Athletics")
+        return 2;
+    else if(skill_name == "Bluff")
+        return 3;
+    else if(skill_name == "Diplomacy")
+        return 4;
+    else if(skill_name == "Dungeoneering")
+        return 5;
+    else if(skill_name == "Endurance")
+        return 6;
+    else if(skill_name == "Heal")
+        return 7;
+    else if(skill_name == "History")
+        return 8;
+    else if(skill_name == "Insight")
+        return 9;
+    else if(skill_name == "Intimidate")
+        return 10;
+    else if(skill_name == "Nature")
+        return 11;
+    else if(skill_name == "Perception")
+        return 12;
+    else if(skill_name == "Religion")
+        return 13;
+    else if(skill_name == "Stealth")
+        return 14;
+    else if(skill_name == "Streetwise")
+        return 15;
+    else if(skill_name == "Thievery")
+        return 16;
+    else
+        return -1;
 }
